@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="Access-Control-Allow-Origin" content="*">
+      <script src="./require.js"></script>
       <script type="text/javascript">
         function change() {
           var list=['單手劍','雙手劍','單手球棒','雙手球棒','單手鎚','長槍','斧頭','盾','十字鎬','水龍頭','口罩','鞋子','桐木','石頭','鐵礦','銅礦','銀礦','金礦','鉑','鑽石','鑽石(盾)','鑽石(單手槌)','好運石','冰龍血','琥珀','強運水晶','死人骨頭','山羊眼','山羊角','山羊皮','山羊骨','黑曜石','黑曜石(銳器)','魔鐵','閃鐵','魔岩','閃岩','魔銀','紅砂岩','牙齒','尖刺腳骨(單手劍)','頭骨','脊椎','尾骨','前爪骨']
@@ -25,7 +26,7 @@
       </script>
     </head>
     <body>
-      <select id="quality">
+      <select id="quality" style="width:13%">
           <option value=2.60>傳說</option>
           <option value=2.25>神話</option>
           <option value=2.00>史詩</option>
@@ -38,7 +39,7 @@
           <option value=0.55>破爛</option>
           <option value=0.30>垃圾</option>
       </select>
-      <select id="type">
+      <select id="type" style="width:27%">
         <option>單手劍</option>
         <option>雙手劍</option>
         <option>單手球棒</option>
@@ -52,7 +53,7 @@
         <option>口罩</option>
         <option>鞋子</option>
       </select>
-      <select id="meterial">
+      <select id="meterial" style="width:50%">
         <option>桐木</option>
       	<option>石頭</option>
       	<option>鐵礦</option>
@@ -87,30 +88,31 @@
       	<option>尾骨</option>
       	<option>前爪骨</option>
       </select>
-      <div>
-        <h2>攻擊：</h2>
-        <input id="atk">
+      <div align="center">
+        <h2 >攻擊：</h2>
+        <input id="atk" style="width:100%">
       </div>
-      <div>
+      <div align="center">
         <h2>防禦：</h2>
-        <input id="def">
+        <input id="def" style="width:100%">
       </div>
-      <div>
+      <div align="center">
         <h2>挖礦：</h2>
-        <input id="mine">
+        <input id="mine" style="width:100%">
       </div>
-      <div>
+      <div align="center">
         <h2>耐久：</h2>
-        <input id="resi">
+        <input id="resi" style="width:100%">
       </div>
-      <div>
-        <h2>鍛造熟練度：</h2>
-        <input id="lv">
+      <div align="center">
+        <h2>鍛造熟練度：\n</h2>
+        <input id="lv" style="width:100%">
+
       </div>
-        <button type="button" name="button" onclick=change()>計算！</button>
-        <div>
+        <div  align="center"><button type="button" name="button" onclick=change() style="width:60%"  align="center">計算！</button></div>
+        <div  align="center">
           <h2>結果：</h2>
-          <textarea id="result" column=20>結果顯示在這邊</textarea>
+          <textarea id="result" style="width:100%">結果顯示在這邊</textarea>
         </div>
     </body>
 </html>
