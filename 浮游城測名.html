@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="Access-Control-Allow-Origin" content="*">
+      <script src="./require.js"></script>
+      <script type="text/javascript">
+        function change() {
+          var list=['單手劍','雙手劍','單手球棒','雙手球棒','單手鎚','長槍','斧頭','盾','十字鎬','水龍頭','口罩','鞋子','桐木','石頭','鐵礦','銅礦','銀礦','金礦','鉑','鑽石','鑽石(盾)','鑽石(單手槌)','好運石','冰龍血','琥珀','強運水晶','死人骨頭','山羊眼','山羊角','山羊皮','山羊骨','黑曜石','黑曜石(銳器)','魔鐵','閃鐵','魔岩','閃岩','魔銀','紅砂岩','牙齒','尖刺腳骨(單手劍)','頭骨','脊椎','尾骨','前爪骨']
+          var tp=list.indexOf(document.getElementById('type').value)
+          var mt=list.indexOf(document.getElementById('meterial').value)
+          var data=[[1,1,1,1,1],[2,1.55,1.737,2.7,1.386],[3,0.8333,1.072,0.7555,0.927],[4,1.5,1.7,2.5,1.1],[5,1.074,0.4688,1.88,1.02],[6,1.35,2,0.25,1.112],[7,1.2,0.636,2.15,1.05],[8,0.17,1.636,0.505,1.085],[9,0.986,0.582,3.12,1.056],[10,0.167,0.18,0.25,0.555],[11,0.0524,0.1104,0.125,0.5438],[12,0.15,0.32,0.95,0.74],[13,16.825,30.8358,5.58441,45.4875],[14,33.65,46.3,11.16882,30.325],[15,33.65,46.3,16.77,60.65],[16,50.475,30.8358,16.77,90.975],[17,117.775,46.3,27.93882,45.4875],[18,151.425,46.3,33.54,30.325],[19,134.6,138.9,44.70882,136.4625],[20,67.3,138.9,39.12441,166.7875],[21,67.3,185.2,39.12441,166.7875],[22,117.775,138.9,39.12441,166.7875],[23,67.3,108.0179,22.35441,90.975],[24,218.725,46.3,55.89441,15.1625],[25,100.95,61.7179,16.77,45.4875],[26,100.95,46.3,22.35441,30.325],[27,84.125,61.7179,0,30.325],[28,168.25,77.1358,50.31,60.65],[29,235.55,138.9,55.89441,151.625],[30,100.95,200.6179,27.93882,197.1125],[31,134.6,185.2,46.1175,227.4375],[32,89.733109,61.7179,33.54,106.1375],[33,242.28,61.7179,33.54,106.1375],[34,168.25,108.0179,55.89441,106.1375],[35,218.725,169.7358,79.6575,121.3],[36,134.6,154.3179,39.12441,151.625],[37,168.25,219.925,55.89441,181.95],[38,235.55,123.4358,71.2725,90.975],[39,117.775,138.9,50.31,166.7875],[40,117.775,108.805,39.4095,151.625],[41,235.55,215.295,33.54,121.3],[42,84.125,312.525,50.31,272.925],[43,117.775,277.8,71.2725,242.6],[44,286.025,200.6179,55.89441,151.625],[45,336.5,162.05,72.66441,197.1125]];
+          var val_tp=data[tp]
+          var val_mt=data[mt]
+          var fin=[parseFloat(document.getElementById('atk').value),parseFloat(document.getElementById('def').value),parseFloat(document.getElementById('mine').value),parseFloat(document.getElementById('resi').value)]
+          var lv_multi=1+0.02*Math.sqrt(document.getElementById('lv').value)
+          console.log(val_tp);
+          console.log(val_mt);
+          console.log(fin);
+          var pt="攻擊："+String(Math.round(fin[0]/val_tp[1]/val_mt[1]/document.getElementById('quality').value*100/lv_multi)/100)+","
+          pt+="防禦："+String(Math.round(fin[1]/val_tp[2]/val_mt[2]/document.getElementById('quality').value/lv_multi*100)/100)+","
+          pt+="挖礦："+String(Math.round(fin[2]/val_tp[3]/val_mt[3]/document.getElementById('quality').value/lv_multi*100)/100)+","
+          pt+="耐久："+String(Math.round(fin[3]/val_tp[4]/val_mt[4]/document.getElementById('quality').value/lv_multi*100)/100)+","
+          document.getElementById('result').value=pt
+          //document.getElementById('text').value=document.getElementById('sel').value;
+        }
+      </script>
+    </head>
+    <body>
+      <select id="quality">
+          <option value=2.60>傳說</option>
+          <option value=2.25>神話</option>
+          <option value=2.00>史詩</option>
+          <option value=1.70>頂級</option>
+          <option value=1.40>精良</option>
+          <option value=1.20>上等</option>
+          <option value=1.00>普通</option>
+          <option value=0.85>次等</option>
+          <option value=0.70>劣質</option>
+          <option value=0.55>破爛</option>
+          <option value=0.30>垃圾</option>
+      </select>
+      <select id="type">
+        <option>單手劍</option>
+        <option>雙手劍</option>
+        <option>單手球棒</option>
+        <option>雙手球棒</option>
+        <option>單手鎚</option>
+        <option>長槍</option>
+        <option>斧頭</option>
+        <option>盾</option>
+        <option>十字鎬</option>
+        <option>水龍頭</option>
+        <option>口罩</option>
+        <option>鞋子</option>
+      </select>
+      <select id="meterial">
+        <option>桐木</option>
+      	<option>石頭</option>
+      	<option>鐵礦</option>
+      	<option>銅礦</option>
+      	<option>銀礦</option>
+      	<option>金礦</option>
+      	<option>鉑</option>
+      	<option>鑽石</option>
+      	<option>鑽石(盾)</option>
+      	<option>鑽石(單手槌)</option>
+      	<option>好運石</option>
+      	<option>冰龍血</option>
+      	<option>琥珀</option>
+      	<option>強運水晶</option>
+      	<option>死人骨頭</option>
+      	<option>山羊眼</option>
+      	<option>山羊角</option>
+      	<option>山羊皮</option>
+      	<option>山羊骨</option>
+      	<option>黑曜石</option>
+      	<option>黑曜石(銳器)</option>
+      	<option>魔鐵</option>
+      	<option>閃鐵</option>
+      	<option>魔岩</option>
+      	<option>閃岩</option>
+      	<option>魔銀</option>
+      	<option>紅砂岩</option>
+      	<option>牙齒</option>
+      	<option>尖刺腳骨(單手劍)</option>
+      	<option>頭骨</option>
+      	<option>脊椎</option>
+      	<option>尾骨</option>
+      	<option>前爪骨</option>
+      </select>
+      <div>
+        <h2>攻擊：</h2>
+        <input id="atk">
+      </div>
+      <div>
+        <h2>防禦：</h2>
+        <input id="def">
+      </div>
+      <div>
+        <h2>挖礦：</h2>
+        <input id="mine">
+      </div>
+      <div>
+        <h2>耐久：</h2>
+        <input id="resi">
+      </div>
+      <div>
+        <h2>鍛造熟練度：</h2>
+        <input id="lv">
+      </div>
+        <button type="button" name="button" onclick=change()>計算！</button>
+        <div>
+          <h2>結果：</h2>
+          <textarea id="result" column=20>結果顯示在這邊</textarea>
+        </div>
+    </body>
+</html>
